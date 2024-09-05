@@ -1,0 +1,122 @@
+$button-color: #fff;
+$button-background: rgba(0, 128, 0);
+$mq-mobile: 430px;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  height: 450px;
+  padding: 50px;
+  gap: 25px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 10px rgba(77, 76, 76, 0.747);
+
+  @media (max-width: $mq-mobile) {
+    width: 300px;
+    height: 350px;
+    padding: 35px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    @media (max-width: $mq-mobile) {
+      font-size: 27px;
+    }
+  }
+
+  &__wrapper-input {
+    height: 50px;
+    position: relative;
+    align-items: center;
+    display: flex;
+
+    & label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      font-size: 18px;
+      transform: translateY(-50%);
+      transition: all 0.2s ease-in;
+      pointer-events: none;
+      color: rgb(134, 134, 134);
+    }
+
+    & input {
+      padding: 0 5px;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      border-bottom: 1px solid rgba(49, 49, 49, 0.438);
+
+      &:focus {
+        border-bottom: 1px solid rgb(0, 0, 0);
+      }
+
+      &::placeholder {
+        opacity: 0;
+      }
+
+      &:not(:placeholder-shown) ~ label,
+      &:focus ~ label {
+        top: -5px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: $mq-mobile) {
+      height: 35px;
+
+      & label,
+      & input {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__action,
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: $mq-mobile) {
+      font-size: 13px;
+    }
+  }
+
+  .options__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__action-button {
+    width: 50%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: $button-color;
+    background-color: $button-background;
+
+    @media (max-width: $mq-mobile) {
+      font-size: 18px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
